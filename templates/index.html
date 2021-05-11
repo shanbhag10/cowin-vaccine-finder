@@ -17,7 +17,7 @@
       			{% endif %}
 				<div class="input1">
 					<div class="left lab"> 
-						<label for="name">Name*:</label>
+						<label for="name">Name<span class="asterix">*</span>:</label>
 					</div>
 	                <div class="right">
 	                    <input type="text" id="name" name="Name" required>
@@ -25,10 +25,31 @@
             	</div>
             	<div class="input1">
 					<div class="left lab"> 
-						<label for="email">Email*:</label>
+						<label for="email">Email<span class="asterix">*</span>:</label>
 					</div>
 	                <div class="right">
 	                    <input type="text" id="email" name="Email" required>
+	                </div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="district">District<span class="asterix">*</span>:</label>
+					</div>
+					<div class="right">
+		                <select id="district" name="District" required>
+							<option>Choose district</option>
+							{% for key, value in districts.items() %}
+								<option value={{ key }}> {{ value }} </option>
+							{% endfor %}
+						</select>
+					</div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="pin">Pin Code<span class="asterix">*</span>:</label>
+					</div>
+	                <div class="right">
+	                    <input type="text" id="pin" name="Pin" required>
 	                </div>
             	</div>
             	<div class="input1">
@@ -41,32 +62,11 @@
             	</div>
             	<div class="input1">
 					<div class="left lab"> 
-						<label for="pin">Pin Code*:</label>
-					</div>
-	                <div class="right">
-	                    <input type="text" id="pin" name="Pin" required>
-	                </div>
-            	</div>
-            	<div class="input1">
-					<div class="left lab"> 
 						<label for="distance">Distance:</label>
 					</div>
 	                <div class="right">
-	                    <input type="number" id="distance" name="Distance" max="25">
+	                    <input type="number" id="distance" name="Distance" max="25" min="0">
 	                </div>
-            	</div>
-            	<div class="input1">
-					<div class="left lab"> 
-						<label for="district">District*:</label>
-					</div>
-					<div class="right">
-		                <select id="district" name="District" required>
-							<option>Choose district</option>
-							{% for key, value in districts.items() %}
-								<option value={{ key }}> {{ value }} </option>
-							{% endfor %}
-						</select>
-					</div>
             	</div>
 				<div>
 					<div class="row">

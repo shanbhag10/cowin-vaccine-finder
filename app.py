@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    message = "Please fill in your information and we will send you an email when a vaccine slot is available in your area. Providing address and the distance you can travel will result in more accurate alerts. Only one alert is allowed per email address"
+    message = "Please fill in your information and we will send you an email when a vaccine slot is available in your area. <br />Providing address and the distance you can travel will result in more accurate alerts. <br />Only one alert is allowed per email."
     return render_template('index.html', districts=get_districts(), message=message, message_color="#006bb3")
 
 
