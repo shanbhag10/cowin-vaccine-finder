@@ -112,8 +112,8 @@ textarea, select {
     input[type='text'],
     input[type='number'],
     textarea, select {
-        padding: 0.3rem;
-        font-size: 3vw;
+      padding: 0.3rem;
+      font-size: 3vw;
     }
 
     h1 {
@@ -134,8 +134,12 @@ textarea, select {
     }
 
     .btn {
-        padding: 5% 5% 5% 5%;
-        font-size: 3.2vw;
-        margin-left: 30%;
+      padding: 5% 5% 5% 5%;
+      font-size: 3.2vw;
+      margin-left: 30%;
+    }
+
+    .message {
+      font-size: 0.7rem;
     }
 }

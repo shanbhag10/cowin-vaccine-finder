@@ -13,7 +13,7 @@
 		<div class="borderbox form">
 			<form action="/create_alert" method="POST">
 				{% if message %}
-        			<p class="message">{{ message | safe }}</p>
+        			<p class="message" style="color: {{message_color}} ">{{ message | safe }}</p>
       			{% endif %}
 				<div class="input1">
 					<div class="left lab"> 

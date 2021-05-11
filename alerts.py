@@ -2,6 +2,7 @@ import uuid
 import boto3
 import datetime
 import os
+from botocore.exceptions import ClientError
 
 class Alert:
 	def __init__(self, name, email, address, pin, distance, district):
@@ -23,6 +24,15 @@ class Alert:
 		
 		table = dynamodb.Table(os.environ.get('DYNAMODB_TABLE'))
 
+		response = {}
+		try:
+			response = table.get_item(Key={'email': self.email})
+		except ClientError as e:
+			print(e.response['Error']['Message'])
+
+		if 'Item' in response:
+			return (400, "An alert already exists with the provided email. Please try a different email")
+
 		item = {
 			"id":self.id,
 			"name":self.name,
@@ -35,3 +45,5 @@ class Alert:
 		}
 
 		table.put_item(Item=item)
+
+		return (201, "Successfully created alert. We will send you an email when a slot is available. Thank you.")
