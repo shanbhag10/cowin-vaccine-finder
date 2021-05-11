@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-input {
+input, select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
