@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Covid Vaccine Finder</title>
+		<link type="text/css" rel="stylesheet" href="../static/style.css">
+	</head>
+	<body class="wallpaper">
+		<div class="borderbox">
+			<h1> Covid Vaccine Finder </h1>
+		  	<h3> We can defeat this thing, one shot at a time </h3>
+		</div>
+
+		<div class="borderbox form">
+			<form action="/create_alert" method="POST">
+				{% if message %}
+        			<p class="message">{{ message | safe }}</p>
+      			{% endif %}
+				<div class="input1">
+					<div class="left lab"> 
+						<label for="name">Name*:</label>
+					</div>
+	                <div class="right">
+	                    <input type="text" id="name" name="Name" required>
+	                </div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="email">Email*:</label>
+					</div>
+	                <div class="right">
+	                    <input type="text" id="email" name="Email" required>
+	                </div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="address">Address:</label>
+					</div>
+	                <div class="right">
+	                    <input type="text" id="address" name="Address">
+	                </div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="pin">Pin Code*:</label>
+					</div>
+	                <div class="right">
+	                    <input type="text" id="pin" name="Pin" required>
+	                </div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="distance">Distance:</label>
+					</div>
+	                <div class="right">
+	                    <input type="number" id="distance" name="Distance" max="25">
+	                </div>
+            	</div>
+            	<div class="input1">
+					<div class="left lab"> 
+						<label for="district">District*:</label>
+					</div>
+					<div class="right">
+		                <select id="district" name="District" required>
+							<option>Choose district</option>
+							{% for key, value in districts.items() %}
+								<option value={{ key }}> {{ value }} </option>
+							{% endfor %}
+						</select>
+					</div>
+            	</div>
+				<div>
+					<div class="row">
+						<button class="btn" type="submit" value="submit">Create Alert</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

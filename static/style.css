@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+body, html {
+  font-family: Garamond, Arial, Helvetica, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.wallpaper {
+  background-color: #d9d9d9;
+}
+
+h1 {
+  padding-top: 4%;
+  color: #0099ff;
+  text-align: center;
+}
+
+h3 {
+  color: #006bb3;
+  text-align: center;
+  padding: 0% 5% 5% 5%;
+}
+
+.borderbox {
+  background-color: white;
+  margin: 1% 11% 1% 11%;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
+  text-align: center;
+  border-radius: 5px;
+  font-size: 20px;
+  max-width: 600px;
+}
+
+.input1 {
+  margin-top: 5%
+}
+
+.lab {
+  padding-top: 10px;
+  text-align: right;
+}
+
+input[type='text'],
+input[type='number'],
+textarea, select {
+  display: block;
+  width: 100%;
+  padding: 0.6rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  max-width: 200px;
+  margin-right: 5%;
+  font-size: 70%;
+}
+
+.form {
+  padding: 10px 30px 10px 10px;
+}
+
+.row {
+  padding: 15px 9px 15px 9px;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.left {
+    width: 40%;
+    float: left;
+}
+
+.right {
+    margin-left: 50%;
+}
+
+.btn {
+  display: block;
+  background: #0099ff;
+  margin-left: 40%;
+  border-radius: 30px;
+  color: #fff;
+  padding: 3% 2% 3% 2%;
+  margin-top: 5%;
+  max-width: 330px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 20px;
+  border: 2px solid #0099ff;
+}
+
+.message {
+  text-align: center;
+  padding: 5px;
+  border: rgb(211, 211, 211) dotted 2px;
+  margin-top: 2rem;
+  margin-left: 1.5rem;
+  width: 90%;
+  font-size: 1rem;
+}
+
+
+@media screen and (max-width: 600px) {
+    input[type='text'],
+    input[type='number'],
+    textarea, select {
+        padding: 0.3rem;
+        font-size: 3vw;
+    }
+
+    h1 {
+      font-size: 6vw;
+    }
+
+    h3 {
+      font-size: 4vw;
+    }
+
+    .input1 {
+      margin-top: 15px;
+      font-size: 3.5vw;
+    }
+
+    .lab {
+      font-size: 3.5vw;
+    }
+
+    .btn {
+        padding: 5% 5% 5% 5%;
+        font-size: 3.2vw;
+        margin-left: 30%;
+    }
+}
