@@ -33,6 +33,9 @@ class Alert:
 		if 'Item' in response:
 			return (400, "An alert already exists with the provided email.<br />Please try a different email")
 
+		if not self.district.isnumeric():
+			return (400, "Please choose your district")
+
 		item = {
 			"id":self.id,
 			"name":self.name,
