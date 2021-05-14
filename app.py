@@ -18,9 +18,10 @@ def create_alert():
         alert = Alert(request.form["Name"], request.form["Email"], request.form["Address"], request.form["Pin"], request.form["Distance"], request.form["District"])
         response = alert.save_alert()
 
-        message_color = "green" if response[0] == 201 else "red"
+        if response is not None:
+            return render_template('index.html', message=response, districts=get_districts(), message_color="red")
 
-        return render_template('index.html', message=response[1], districts=get_districts(), message_color=message_color)
+        return render_template('success.html')
 
 
 def get_districts():

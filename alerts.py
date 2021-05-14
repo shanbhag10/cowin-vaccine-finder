@@ -31,10 +31,10 @@ class Alert:
 			print(e.response['Error']['Message'])
 
 		if 'Item' in response:
-			return (400, "An alert already exists with the provided email.<br />Please try a different email")
+			return "An alert already exists with the provided email.<br />Please try a different email"
 
 		if not self.district.isnumeric():
-			return (400, "Please choose your district")
+			return "Please choose your district"
 
 		item = {
 			"id":self.id,
@@ -49,4 +49,4 @@ class Alert:
 
 		table.put_item(Item=item)
 
-		return (201, "Successfully created alert. We will send you an email when a slot is available. <br />Thank you.")
+		return None
