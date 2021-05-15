@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    message = "Please fill in your information and we will send you an email when a vaccine slot is available in your area. <br />Providing address and the distance you can travel will result in more accurate alerts. <br />Only one alert is allowed per email."
+    message = "Please fill in your information and you will receive email alerts whenever a vaccine slot becomes available in your area. (Every 15min) <br />"
     return render_template('index.html', districts=get_districts(), message=message, message_color="#006bb3")
 
 
@@ -22,6 +22,13 @@ def create_alert():
             return render_template('index.html', message=response, districts=get_districts(), message_color="red")
 
         return render_template('success.html')
+
+
+@app.route("/unsubscribe/<email>", methods=['POST', 'GET'])
+def unsubscribe(email):
+    if request.method == 'GET':
+        delete_alert(email)
+        return render_template('unsubscribe.html')
 
 
 def get_districts():

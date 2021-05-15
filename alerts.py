@@ -2,6 +2,7 @@ import uuid
 import boto3
 import datetime
 import os
+import re
 from botocore.exceptions import ClientError
 
 class Alert:
@@ -31,10 +32,14 @@ class Alert:
 			print(e.response['Error']['Message'])
 
 		if 'Item' in response:
-			return "An alert already exists with the provided email.<br />Please try a different email"
+			return "An account already exists with the provided email.<br />Please try a different email"
 
 		if not self.district.isnumeric():
 			return "Please choose your district"
+
+		regex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
+		if not re.search(regex, self.email):
+			return "Invalid email! Please provide a valid email."
 
 		item = {
 			"id":self.id,
@@ -55,3 +60,18 @@ class Alert:
 		response = client.verify_email_identity(EmailAddress=self.email)
 
 		return None
+
+
+def delete_alert(email):
+	dynamodb = boto3.resource('dynamodb', 'ap-south-1', 
+			aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+			aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
+		
+	table = dynamodb.Table(os.environ.get('DYNAMODB_TABLE'))
+
+	try:
+		response = table.delete_item(Key={'email': email})
+	except ClientError as e:
+		print(e.response['Error']['Message'])
+	else:
+		return response
