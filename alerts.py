@@ -49,4 +49,9 @@ class Alert:
 
 		table.put_item(Item=item)
 
+		client = boto3.client('ses', 'ap-south-1', 
+			aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+			aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
+		response = client.verify_email_identity(EmailAddress=self.email)
+
 		return None
